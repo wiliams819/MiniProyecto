@@ -1,6 +1,9 @@
 //https://rickandmortyapi.com/api/character/
+
+//variable que tiene al contenedor padre
 let contenedor = document.querySelector(".container_father");
 
+//varaibles que tienen a los elementos del a pagina
 let imagen = document.querySelector(".imagen");
 let nombre = document.querySelector(".nombre");
 let planeta = document.querySelector(".planeta");
@@ -8,6 +11,8 @@ let estatus = document.querySelector(".status");
 let especie = document.querySelector(".especie");
 let genero = document.querySelector(".genero");
 
+//uso de axios para llamar a la api y uso de for para llenar el contenedor padre
+//con cada vuelta que de
 const peticion = async ()=>{
     let resultado = await axios("https://rickandmortyapi.com/api/character/")
     console.log(resultado.data.results)
@@ -21,7 +26,7 @@ const peticion = async ()=>{
         genero = resultado.data.results[i].gender;
 
         let inyeccion = `
-        <article class="container card s-mb-2 m-mb-2 lg-mb-2 xl-mb-2 s-mr-3 m-mr-3 lg-mr-3 xl-mr-3">
+        <article class="container s-mb-2 m-mb-2 lg-mb-2 xl-mb-2 s-mr-3 m-mr-3 lg-mr-3 xl-mr-3">
             <div class="container-img">
                 <img class="imagen" src="${imagen}" alt="">
             </div>
@@ -40,4 +45,4 @@ const peticion = async ()=>{
 
 }
 
-peticion()
+peticion();
